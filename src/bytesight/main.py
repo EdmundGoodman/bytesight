@@ -2,7 +2,6 @@
 """Bytesight tracing profiler for Python bytecode."""
 
 from collections.abc import Callable
-from time import perf_counter
 from typing import Any
 
 from bytesight.profiler import BytecodeProfiler
@@ -49,28 +48,8 @@ def profile_bytecode(
 
 
 def main() -> None:  # pragma: no cover
-    """Say hello."""
-
-    def inner_function(x: int | str | float):
-        assert x
-
-    def raise_exception():
-        raise ValueError("Help")
-
-    def example_function():
-        inner_function(1)
-        inner_function("Hello")
-        _x = perf_counter()
-        raise_exception()
-        inner_function(5.0)
-
-    nop_sled = BytecodeProfiler.get_nop_sled(50)
-
-    def go():
-        example_function()
-
-    profile_bytecode(go)
-    # print_bytecode(go)
+    """Invoke the bytecode profiler."""
+    raise NotImplementedError("CLI not yet implemented!")
 
 
 if __name__ == "__main__":
