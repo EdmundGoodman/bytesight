@@ -16,8 +16,7 @@ nav:
   - Home: index.md
   - Getting started: getting_started.md
   - Implementation: implementation.md
-  - Reference:
-      - Tool: reference/main.md
+  - Reference: reference.md
   - Contributing: contributing.md
 
 theme:

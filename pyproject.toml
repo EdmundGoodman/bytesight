@@ -1,6 +1,6 @@
 [project]
-name = "ByteSight"
-version = "0.1.0"
+name = "bytesight"
+version = "0.1.1"
 description = "A tracing profiler for Python bytecode"
 readme = "README.md"
 requires-python = ">=3.10"
