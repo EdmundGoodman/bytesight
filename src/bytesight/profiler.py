@@ -115,6 +115,7 @@ class BytecodeProfiler:
         self, frame: types.FrameType, event: str, arg: Any
     ) -> Callable[..., Any] | None:
         """Collect all events emitted by the function being traced."""
+        frame.f_trace_lines = True
         frame.f_trace_opcodes = True
 
         assert event in EVENT_NAME_LOOKUP

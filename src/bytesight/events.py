@@ -143,7 +143,11 @@ class OpcodeEvent(TracedEvent):
         This can be found by retrieving the instruction at the correct offset in
         the frame.
         """
-        for instr in dis.get_instructions(frame.f_code):
+        if sys.version_info.minor >= 11:
+            instructions = dis.get_instructions(frame.f_code, adaptive=True)
+        else:
+            instructions = dis.get_instructions(frame.f_code)
+        for instr in instructions:
             if instr.offset == frame.f_lasti:
                 return instr
         return None
@@ -151,7 +155,7 @@ class OpcodeEvent(TracedEvent):
     @classmethod
     def get_lineno(cls, instruction: dis.Instruction) -> int | None:
         """Get the line number for an instruction."""
-        if sys.version_info.minor <= 10:
+        if sys.version_info.minor <= 11:
             return instruction.starts_line
         if instruction.line_number is not None:
             return instruction.line_number
