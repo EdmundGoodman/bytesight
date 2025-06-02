@@ -11,6 +11,9 @@ from pathlib import Path
 from typing import Any
 
 
+USE_ADAPTIVE: bool = False
+
+
 @dataclass(eq=True, frozen=True)
 class StopEvent:
     """An event guarding the end of the trace."""
@@ -144,7 +147,7 @@ class OpcodeEvent(TracedEvent):
         the frame.
         """
         if sys.version_info.minor >= 11:
-            instructions = dis.get_instructions(frame.f_code, adaptive=True)
+            instructions = dis.get_instructions(frame.f_code, adaptive=USE_ADAPTIVE)
         else:
             instructions = dis.get_instructions(frame.f_code)
         for instr in instructions:
