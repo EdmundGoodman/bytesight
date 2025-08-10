@@ -14,10 +14,7 @@ use_directory_urls: false
 
 nav:
   - Home: index.md
-  - Getting started: getting_started.md
-  - Implementation: implementation.md
   - Reference: reference.md
-  - Contributing: contributing.md
 
 theme:
   name: material
