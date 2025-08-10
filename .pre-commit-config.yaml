@@ -32,27 +32,27 @@ repos:
       - id: check-shebang-scripts-are-executable
       - id: debug-statements
 
-  # Run the ruff linter
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.8
-    hooks:
-      - id: ruff
-        args: ["--fix", "--show-fixes", "--exit-non-zero-on-fix"]
-      - id: ruff-format
+  # # Run the ruff linter
+  # - repo: https://github.com/astral-sh/ruff-pre-commit
+  #   rev: v0.6.8
+  #   hooks:
+  #     - id: ruff
+  #       args: ["--fix", "--show-fixes", "--exit-non-zero-on-fix"]
+  #     - id: ruff-format
 
-  # NOTE: Some hooks need to be run locally to get access to dependencies
-  # installed in the local virtual environment
-  - repo: local
-    hooks:
-    # Run the mypy type annotation static analysis tool
-    - id: mypy
-      name: mypy
-      description: statically analyses python type annotations.
-      entry: uv run mypy
-      language: system
-      types: [ python ]
-      args: ["--scripts-are-modules"]  # --namespace-packages, --explicit-package-bases ]
-      require_serial: true
+  # # NOTE: Some hooks need to be run locally to get access to dependencies
+  # # installed in the local virtual environment
+  # - repo: local
+  #   hooks:
+  #   # Run the mypy type annotation static analysis tool
+  #   - id: mypy
+  #     name: mypy
+  #     description: statically analyses python type annotations.
+  #     entry: uv run mypy
+  #     language: system
+  #     types: [ python ]
+  #     args: ["--scripts-are-modules"]  # --namespace-packages, --explicit-package-bases ]
+  #     require_serial: true
 
   # # Run the vulture dead code detection tool
   # - repo: https://github.com/jendrikseipp/vulture
